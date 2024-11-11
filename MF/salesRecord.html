@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maharlika Flavors - Sales Management System</title>
+    <link rel="stylesheet" href="../css/salesRec.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Table -->
+        <div class="table-container">
+
+            <h1>MAHARLIKA FLAVORS</h1>
+            <h2>SALES MANAGEMENT SYSTEM</h2>
+
+            <table id="products" class="table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Order Summary</th>
+                        <th>Dining Preference</th>
+                        <th>Payment Method</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="product_content">
+                    <!-- Dynamic content will go here -->
+                </tbody>
+            </table>
+            <p id="no-orders-message" style="display:none;">No orders found.</p>
+        </div>
+    </div>
+
+    <script>
+        // Function to load sales data from localStorage
+        function loadSalesData() {
+            const tableBody = document.getElementById("product_content");
+            const noOrdersMessage = document.getElementById("no-orders-message");
+
+            // Retrieve all sales data from localStorage
+            const salesData = JSON.parse(localStorage.getItem('salesData')) || [];
+
+            // Clear any existing rows in the table
+            tableBody.innerHTML = "";
+
+            // Check if there are no sales data
+            if (salesData.length === 0) {
+                noOrdersMessage.style.display = 'block';  // Show the "No orders found" message
+            } else {
+                noOrdersMessage.style.display = 'none';   // Hide the message if there are orders
+
+                // Create a set to keep track of displayed order IDs (unique order IDs)
+                const displayedOrderIds = new Set();
+
+                // Loop through the sales data and create rows for each order
+                salesData.forEach((order) => {
+                    // Check if the orderId has already been displayed
+                    if (!displayedOrderIds.has(order.orderId)) {
+                        const row = document.createElement("tr");
+
+                        // Create cells for each property in the sales order
+                        const orderIdCell = document.createElement("td");
+                        orderIdCell.textContent = order.orderId;
+
+                        const summaryCell = document.createElement("td");
+                        summaryCell.textContent = order.summary;
+
+                        const dineOptionCell = document.createElement("td");
+                        dineOptionCell.textContent = order.diningPreference;
+
+                        const paymentMethodCell = document.createElement("td");
+                        paymentMethodCell.textContent = order.paymentMethod;
+
+                        const totalCell = document.createElement("td");
+                        totalCell.textContent = order.total;
+
+                        // Append all cells to the row
+                        row.appendChild(orderIdCell);
+                        row.appendChild(summaryCell);
+                        row.appendChild(dineOptionCell);
+                        row.appendChild(paymentMethodCell);
+                        row.appendChild(totalCell);
+
+                        // Append the row to the table body
+                        tableBody.appendChild(row);
+
+                        // Add the orderId to the set to track it
+                        displayedOrderIds.add(order.orderId);
+                    }
+                });
+            }
+        }
+
+        // Call the function when the window loads
+        window.onload = loadSalesData;
+    </script>
+</body>
+</html>

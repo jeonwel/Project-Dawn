@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+
+    <link rel="stylesheet" href="../css/FontAwesome/all.min.css">
+    <link rel="stylesheet" href="../css/FontAwesome/fontawesome.min.css">
+    <link rel="stylesheet" href="../css/order2.css">
+   
+</head>
+<body>
+
+    <header class="header">
+        <nav class="header-menu">
+            <div class="burger-icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Search...">
+            </div>
+            <div class="eat-icon">
+                <i class="fa-solid fa-utensils"></i>
+            </div>
+            <div class="sidebar" id="sidebar">
+                <div class="sidebar-close">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <div class="order-list">
+                    <h3>List Of Orders</h3>
+                    <div class="list-items"></div>
+                    <div class="sidebar-footer">
+                        <div class="total-amount">
+                            <span>----------------------------</span><br>
+                            <h4>Select Dining Option:</h4>
+                            <label>
+                                <input type="radio" name="dine-option" value="Dine In" checked>
+                                Dine In
+                            </label>
+                            <label>
+                                <input type="radio" name="dine-option" value="Dine Out">
+                                Dine Out
+                            </label>
+                            <h4>Select Payment Option:</h4>
+                            <label>
+                                <input type="radio" name="pay-option" value="Cash" checked>
+                                Cash
+                            </label>
+                            <label>
+                                <input type="radio" name="pay-option" value="Credit Card">
+                                Credit Card
+                            </label>
+                            <h5>Total</h5>
+                            <div class="order-total">Php 0.00</div>
+                        </div>
+                        <button class="checkout-btn">Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="cover">
+        <div class="cover-overlay">
+            <h1>Maharlika Flavors</h1>
+            <span class="slogan">Authentic Filipino Dishes with a Modern Twist</span>
+        </div>
+    </section>
+
+    <main>
+        <h2 class="section-heading">Food Menu</h2>
+        <div class="menu-list">
+            <div class="menu-item">
+                <a href="#appetizers-section">
+                    <img src="/Categories/app.jpg" alt="Appetizers">
+                    <h5>APPETIZERS</h5>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="#main-dishes-section">
+                    <img src="/Categories/main.jpg" alt="Main Dishes">
+                    <h5>MAIN DISHES</h5>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="#rice-noodles-section">
+                    <img src="/Categories/rice.jpeg" alt="Rice and Noodles">
+                    <h5>RICE AND NOODLES</h5>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="#seafood-section">
+                    <img src="/Categories/seafood.jpeg" alt="Seafood Specialties">
+                    <h5>SEAFOOD SPECIALTIES</h5>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="#vegetarian-section">
+                    <img src="/Categories/vegetarian.jpg" alt="Vegetarian">
+                    <h5>VEGETARIAN DISHES</h5>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="#desserts-section">
+                    <img src="/Categories/Desserts.jpg" alt="Desserts">
+                    <h5>DESSERTS</h5>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="#beverages-section">
+                    <img src="/Categories/colorful-refreshing-cocktails.jpg" alt="Beverages">
+                    <h5>BEVERAGES</h5>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <section id="appetizers-section" class="section-header hidden">
+        <h2 class="section-heading">Menu Items</h2>
+        <h3 class="appetizer">Appetizers</h3>
+
+        <div class="card-list">
+            <div class="card">
+                <img src="/Appetizers/Kinilaw.jpg" alt="Kinilaw na Tanigue">
+                <h4 class="card-title">Kinilaw na Tanigue</h4>
+                <p>Fresh tanigue fish marinated in vinegar, coconut milk, and spices</p> 
+                <div class="card-price">
+                    <div class="price">Php 350.00</div>
+                    <i class="fa-solid fa-plus add-btn" data-name="Kinilaw na Tanigue" data-price="350"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="/Appetizers/Pugon.jpg" alt="Pugon Baked Oysters">
+                <h4 class="card-title">Pugon Baked Oysters</h4>
+                <p>Oysters baked in a wood-fired oven with garlic-butter sauce</p> 
+                <div class="card-price">
+                    <div class="price">Php 400.00</div>
+                    <i class="fa-solid fa-plus add-btn" data-name="Pugon Baked Oysters" data-price="400"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="/Appetizers/Bulaklak.jpg" alt="Chicharong Bulaklak">
+                <h4 class="card-title">Chicharong Bulaklak</h4>
+                <p>Crispy pork ruffles served with spiced vinegar</p> 
+                <div class="card-price">
+                    <div class="price">Php 320.00</div>
+                    <i class="fa-solid fa-plus add-btn" data-name="Chicharong Bulaklak" data-price="320"></i>                   
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="/Appetizers/Sinuglaw.jpg" alt="Sinuglaw">
+                <h4 class="card-title">Sinuglaw</h4>
+                <p>Grilled pork belly mixed with fresh fish ceviche</p> 
+                <div class="card-price">
+                    <div class="price">Php 380.00</div>
+                    <i class="fa-solid fa-plus add-btn" data-name="Sinuglaw" data-price="380"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="/Appetizers/Lumpiang Ubod.jpg" alt="Pritong Lumpiang Ubod">
+                <h4 class="card-title">Pritong Lumpiang Ubod</h4>
+                <p>Deep-fried spring rolls filled with heart of palm and shrimp</p> 
+                <div class="card-price">
+                    <div class="price">Php 300.00</div>
+                        <i class="fa-solid fa-plus add-btn" data-name="Pritong Lumpiang Ubod" data-price="300"></i>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <section id="main-dishes-section" class="section-header hidden">
+        <h2 class="section-heading">Menu Items</h2>
+        <h3 class="appetizer">Main Dishes</h3>
+
+        <div class="card-list">
+            <div class="card">
+                <img src="/Main Dishes/baboy.jpg" alt="Grilled Liempo">
+                <h4 class="card-title">Grilled Liempo</h4>
+                <p>Grilled pork belly marinated in native herbs and served with sinamak vinegar</p> 
+                <div class="card-price">
+                    <div class="price">Php 380.00</div>
+                    <i class="fa-solid fa-plus add-btn" data-name="Grilled Liempo" data-price="380"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="/Main Dishes/bagnet.jpg" alt="Pugon Baked Oysters">
+                <h4 class="card-title">Ilocos Bagnet</h4>
+                <p>a boiled, air-dried, then deep-fried slabs of pork belly to perfection.</p> 
+                <div class="card-price">
+                    <div class="price">Php 480.00</div>
+                    <i class="fa-solid fa-plus add-btn" data-name="Ilocos Bagnet" data-price="480"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="/Main Dishes/kaldereta.jpg" alt="Chicharong Bulaklak">
+                <h4 class="card-title">Beef Kaldereta</h4>
+                <p>a rich, very filling meaty dish and when served on a bed of cooked rice</p> 
+                <div class="card-price">
+                    <div class="price">Php 320.00</div>
+                    <i class="fa-solid fa-plus add-btn" data-name="Beef Kaldereta" data-price="320"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="/Main Dishes/pata.jpg" alt="Crispy Pata">
+                <h4 class="card-title">Crispy Pata</h4>
+                <p>Crispy deep-fried pork knuckle served with soy-vinegar dipping sauce</p> 
+                <div class="card-price">
+                    <div class="price">Php 650.00</div>
+                    <i class="fa-solid fa-plus add-btn" data-name="Crispy Pata" data-price="650"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="/Main Dishes/pchero.jpg" alt="Pritong Lumpiang Ubod">
+                <h4 class="card-title">Pochero</h4>
+                <p>Beef shank stew slow-cooked with fresh coconut water and native vegetables</p> 
+                <div class="card-price">
+                    <div class="price">Php 550.00</div>
+                    <i class="fa-solid fa-plus add-btn" data-name="Pochero" data-price="550"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rice-noodles-section" class="section-header hidden">
+        <h2 class="section-heading">Menu Items</h2>
+        <h3 class="appetizer">Rice and Noodles</h3>
+
+        <div class="card-list">
+            <div class="card">
+                <img src="../css/Rice and Noodles/Bringhe.jpg" alt="Bringhe">
+                <h4 class="card-title">Bringhe</h4>
+                <p>Traditional Filipino rice dish with glutinous rice, coconut milk, saffron, and chicken</p> 
+                <div class="card-price">
+                    <div class="price">Php 280.00</div>
+                    <i class="fa-solid fa-plus add-btn" data-name="Bringhe" data-price="280"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../css/Rice and Noodles/Aligue Fried Rice.jpg" alt="Aligue Fried Rice">
+                <h4 class="card-title">Aligue Fried Rice</h4>
+                <p>Fried rice infused with rich crab fat (aligue) and garlic, delivering a luxurious flavor in every bite.</p> 
+                <div class="card-price">
+                    <div class="price">Php 380.00</div>
+                    <i class="fa-solid fa-plus add-btn" data-name="Aligue Fried Rice" data-price="380"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../css/Rice and Noodles/garlic fried rice.jpg" alt="Garlic fried rice">
+                <h4 class="card-title">Garlic Fried Rice</h4>
+                <p>Fragrant jasmine rice stir-fried with aromatic garlic and green onions, enhanced with a hint of soy sauce.</p> 
+                <div class="card-price">
+                    <div class="price">Php 220.00</div>
+                    <i class="fa-solid fa-plus add-btn" data-name="Garlic Fried Rice" data-price="220"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../css/Rice and Noodles/pancit malabon.jpg" alt="Pancit Malabon">
+                <h4 class="card-title">Pancit Malabon</h4>
+                <p>Thick rice noodles topped with seafood, eggs, and flavorful shrimp sauce</p> 
+                <div class="card-price">
+                    <div class="price">Php 340.00</div>
+                    <i class="fa-solid fa-plus add-btn" data-name="Pancit Malabon" data-price="340"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="seafood-section" class="section-header hidden">
+        <h2 class="section-heading">Menu Items</h2>
+        <h3 class="appetizer">Seafood Specialties</h3>
+
+        <div class="card-list">
+            <div class="card">
+                <img src="../css/Seafood Specialties/ginataang alimasag.jpg" alt="Crab in Coconut Milk">
+                <h4 class="card-title">Crab in Coconut Milk</h4>
+                <p>Traditional Filipino rice dish with glutinous rice, coconut milk, saffron, and chicken</p> 
+                <div class="card-price">
+                    <div class="price">Php 280.00</div>
+                        <i class="fa-solid fa-plus add-btn" data-name="Crab in Coconut Milk" data-price="280"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../css/Seafood Specialties/hipon sa sampalok.jpg" alt="Shrimp in Tamarind Sauce">
+                <h4 class="card-title">Shrimp in Tamarind Sauce</h4>
+                <p>Succulent shrimp cooked in a tangy tamarind sauce, offering a perfect balance of sweet and sour flavors.</p> 
+                <div class="card-price">
+                    <div class="price">Php 380.00</div>
+                        <i class="fa-solid fa-plus add-btn" data-name="Shrimp in Tamarind Sauce" data-price="380"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../css/Seafood Specialties/inihaw na pusit.jpg" alt="Grilled Squid">
+                <h4 class="card-title">Grilled Squid</h4>
+                <p>Grilled squid marinated in a savory blend of spices, served tender and smoky, perfect as an appetizer or main dish.</p> 
+                <div class="card-price">
+                    <div class="price">Php 220.00</div>
+                        <i class="fa-solid fa-plus add-btn" data-name="Grilled Squid" data-price="220"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../css/Seafood Specialties/inihaw na sugpo.jpg" alt="Grilled Prawns">
+                <h4 class="card-title">Grilled Prawns</h4>
+                <p>Grilled prawns marinated and cooked to perfection, delivering a smoky flavor and succulent texture.</p> 
+                <div class="card-price">
+                    <div class="price">Php 340.00</div>
+                        <i class="fa-solid fa-plus add-btn" data-name="Grilled Prawns" data-price="340"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="vegetarian-section" class="section-header hidden">
+        <h2 class="section-heading">Menu Items</h2>
+        <h3 class="appetizer">Vegetarian Dishes</h3>
+
+        <div class="card-list">
+            <div class="card">
+                <img src="../css/Vegetarian Dishes/ensaladong pako.jpg" alt="Fern Salad">
+                <h4 class="card-title">Fern Salad</h4>
+                <p>A refreshing salad made with tender fiddlehead ferns, tossed with tomatoes, onions, and a tangy dressing for a vibrant and healthy dish.</p> 
+                <div class="card-price">
+                    <div class="price">Php 280.00</div>
+                        <i class="fa-solid fa-plus add-btn" data-name="Fern Salad" data-price="280"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../css/Vegetarian Dishes/laing.jpg" alt="Laing">
+                <h4 class="card-title">Laing</h4>
+                <p>Taro leaves cooked in creamy coconut milk with spices and chili, creating a rich and flavorful dish with a hint of heat.</p> 
+                <div class="card-price">
+                    <div class="price">Php 380.00</div>
+                        <i class="fa-solid fa-plus add-btn" data-name="Laing" data-price="380"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../css/Vegetarian Dishes/pinakbet ilocano.jpg" alt="Ilocano Vegetable Stew">
+                <h4 class="card-title">Ilocano Vegetable Stew</h4>
+                <p>A hearty mix of vegetables, including bitter melon, eggplant, and squash, sautéed with shrimp paste for a savory and nutritious dish.</p> 
+                <div class="card-price">
+                    <div class="price">Php 220.00</div>
+                        <i class="fa-solid fa-plus add-btn" data-name="Ilocano Vegetable Stew" data-price="220"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../css/Vegetarian Dishes/tortang talong.jpg" alt="Eggplant Omelette">
+                <h4 class="card-title">Eggplant Omelette</h4>
+                <p>Grilled eggplant mixed with beaten eggs and pan-fried until golden, offering a delicious and satisfying meal or side dish.</p> 
+                <div class="card-price">
+                    <div class="price">Php 340.00</div>
+                        <i class="fa-solid fa-plus add-btn" data-name="Eggplant Omelette" data-price="340"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="desserts-section" class="section-header hidden">
+        <h2 class="section-heading">Menu Items</h2>
+        <h3 class="appetizer">Desserts</h3>
+
+        <div class="card-list">
+            <div class="card">
+                <img src="../css/Desserts/Bibingka.jpg" alt="Bibingka">
+                <h4 class="card-title">Bibingka</h4>
+                <p>A traditional Filipino rice cake made from rice flour and coconut milk, baked to perfection and topped with salted eggs and grated coconut.</p> 
+                <div class="card-price">
+                    <div class="price">Php 380.00</div>
+                        <i class="fa-solid fa-plus add-btn" data-name="Bibingka" data-price="380"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../css/Desserts/Leche Flan.jpg" alt="Leche Flan">
+                <h4 class="card-title">Leche Flan</h4>
+                <p>A rich and creamy custard topped with a smooth caramel sauce, offering a delightful balance of sweetness and texture.</p> 
+                <div class="card-price">
+                    <div class="price">Php 480.00</div>
+                        <i class="fa-solid fa-plus add-btn" data-name="Leche Flan" data-price="480"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../css/Desserts/pastillas chiskik.jpg" alt="Pastillas Cheesecake">
+                <h4 class="card-title">Pastillas Cheesecake</h4>
+                <p>A unique twist on cheesecake, blending creamy cheese with the sweet flavors of pastillas, topped with a dusting of powdered sugar for a delightful treat.</p> 
+                <div class="card-price">
+                    <div class="price">Php 320.00</div>
+                        <i class="fa-solid fa-plus add-btn" data-name="Pastillas Cheesecake" data-price="320"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../css/Desserts/suman at tsokolit.jpg" alt="Suman with Chocolate">
+                <h4 class="card-title">Suman with Chocolate</h4>
+                <p>Sticky rice cake wrapped in banana leaves, served with a rich chocolate sauce for dipping, combining sweet and creamy flavors.</p> 
+                <div class="card-price">
+                    <div class="price">Php 650.00</div>
+                        <i class="fa-solid fa-plus add-btn" data-name="Suman with Chocolate" data-price="650"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../css/Desserts/Ube Halaya Cheesecake.jpg" alt="Ube Halaya Cheesecake">
+                <h4 class="card-title">Ube Halaya Cheesecake</h4>
+                <p>A vibrant cheesecake infused with creamy ube (purple yam), creating a deliciously unique dessert with a hint of sweetness and a beautiful color.</p> 
+                <div class="card-price">
+                    <div class="price">Php 550.00</div>
+                        <i class="fa-solid fa-plus add-btn" data-name="Ube Halaya Cheesecake" data-price="550"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="beverages-section" class="section-header hidden">
+        <h2 class="section-heading">Menu Items</h2>
+        <h3 class="appetizer">Beverages</h3>
+
+        <div class="card-list">
+            <div class="card">
+                <img src="../css/Beverages/Cookies and Cream Milkshake.jpg" alt="Cookies and Cream Milkshake">
+                <h4 class="card-title">Cookies and Cream Milkshake</h4>
+                <p>A creamy blend of vanilla ice cream, crushed cookies, and milk, topped with whipped cream for a delightful and indulgent treat.</p> 
+                <div class="card-price">
+                    <div class="price">Php 280.00</div>
+                        <i class="fa-solid fa-plus add-btn" data-name="Cookies and Cream Milkshake" data-price="280"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../css/Beverages/Dalandan Cooler.jpg" alt="Dalandan Cooler">
+                <h4 class="card-title">Dalandan Cooler</h4>
+                <p>A refreshing drink made from sweet dalandan (Philippine orange) juice, mixed with soda and served over ice, perfect for hot days.</p>
+                <div class="card-price">
+                    <div class="price">Php 380.00</div>
+                        <i class="fa-solid fa-plus add-btn" data-name="Dalandan Cooler" data-price="380"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../css/Beverages/Kapeng Barako.jpg" alt="Kapeng Barako">
+                <h4 class="card-title">Kapeng Barako</h4>
+                <p>Strong and aromatic coffee made from Barako beans, known for its bold flavor and rich aroma, served hot or iced for a revitalizing experience.</p>
+                <div class="card-price">
+                    <div class="price">Php 220.00</div>
+                        <i class="fa-solid fa-plus add-btn" data-name="Kapeng Barako" data-price="220"></i>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../css/Beverages/Salabat Iced Tea.jpg" alt="Salabat Iced Tea">
+                <h4 class="card-title">Salabat Iced Tea</h4>
+                <p>A refreshing iced tea infused with ginger (salabat), offering a zesty and soothing flavor that’s perfect for any time of the day.</p>
+                <div class="card-price">
+                    <div class="price">Php 340.00</div>
+                        <i class="fa-solid fa-plus add-btn" data-name="Salabat Iced Tea" data-price="340"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <script src="../js/order2.js"></script>

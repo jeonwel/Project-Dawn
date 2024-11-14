@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Galada&family=Imperial+Script&display=swap');
 
-
 * {
     margin: 0;
     padding: 0;
@@ -14,26 +13,26 @@
 }
 
 body {
-    background-color: #c6c5b3;
+    background-color: #FFE6A7;
+    color: #432818;
     padding: 0 8%;
 }
 
 h1{
-    font-family: "Galada", cursive;
-    background: linear-gradient(to bottom right, #ff6337 0%, #ffa323 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     font-size: 70px;
     margin-top: -50px;
 }
 
 span{
-    font-family: "Galada", cursive;
-    background: linear-gradient(to bottom right, #ff6337 0%, #ffa323 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     font-size: 20px;
     margin-top: -12px;
+}
+
+h1, span{
+    font-family: "Galada", cursive;
+    background-image: linear-gradient(to bottom, #6f1d1b, #7f3422, #8e4a2b, #9d6035, #aa7642, #b6864f, #c1975c, #cca86a, #d9b779, #e5c788, #f2d697, #ffe6a7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .header {
     padding: 1.5rem 0;
@@ -66,7 +65,7 @@ span{
 .search-box {
     display: flex;
     align-items: center;
-    background-color: #eceadb;
+    background-color: #e7e5d5;
     border-radius: 50px;
     flex: 1;
     padding: 0.5rem 1.5rem;
@@ -125,29 +124,27 @@ span{
 
 /* Cover Section */
 .cover {
-    background-image: url(../images/cook-food-kitchen-eat-54455.jpeg);
+    background-image: url(../images/coverbg-order2.jpg);
     background-size: cover;
     height: 40vh;
     background-position: center;
-    border-radius: 12px;
+    border-radius: 15px;
     margin-top: 15px;
-    color: #c6c5b3;
-    font-size: 23px;
 }
 
 .cover-overlay {
     background: rgba(0, 0, 0, 0.6);
     height: 100%;
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-    border-radius: 12px;
+    border-radius: 15px;
 }
 
 /* Section Heading */
 .section-heading {
-    color: #402a23;
+    color: #432818;
     text-align: center;
     padding-bottom: 20px;
     font-size: 45px;
@@ -156,7 +153,7 @@ span{
 }
 
 .appetizer{
-    color: #402a23;
+    color: #432818;
     padding-bottom: 20px;
     font-size: 20px;
     text-transform: uppercase;
@@ -184,7 +181,7 @@ span{
     display: flex;
     align-items: center;
     flex-direction: column;
-    border: 2px solid  #c45d3e;
+    border: 2px solid  #BB9457;
     padding: 20px 23px;
     border-radius: 18px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -226,7 +223,7 @@ span{
     gap: 10px;
     padding: 15px;
     border-radius: 10px;
-    background: #ee7c4b;
+    background: #BB9457;
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
     text-align: center;
     color: black;

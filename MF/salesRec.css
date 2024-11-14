@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Galada&family=Imperial+Script&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -12,8 +12,7 @@ body {
     background-color: #000000;
     text-align: center;
     margin: 0;
-    background-image: url(images/ngs.jpg.jpg);
-    
+    background-image: url(/images/ngs.jpg.jpg);
 }
 
 .container {
@@ -25,10 +24,6 @@ body {
 }
 
 h1{
-    font-family: "Galada", cursive;
-    background: linear-gradient(to top left, #ff9900 0%, #ff3300 60%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     margin-top: -50px;
     font-weight: 400;
     font-style: normal;
@@ -40,7 +35,11 @@ h2 {
     font-size: 20px;
     font-weight: normal;
     margin-top: 8px;
-    background: linear-gradient(to top left, #ff9900 0%, #ff3300 60%);
+}
+
+h1, h2{
+    font-family: "Poppins", cursive;
+    background-image: linear-gradient(to bottom, #6f1d1b, #7f3422, #8e4a2b, #9d6035, #aa7642, #b6864f, #c1975c, #cca86a, #d9b779, #e5c788, #f2d697, #ffe6a7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -64,36 +63,37 @@ h2 {
 }
 
 .table thead th {
-    background: linear-gradient(to top left, #ff9900 0%, #ff3300 60%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ddcabc;
     padding: 15px;
     font-size: 16px;
     text-align: center;
-    border-bottom: 2px solid #ccc;
+    border-bottom: 2px solid #FFE6A7;
 }
 
 .table tbody td {
     padding: 12px;
     font-size: 14px;
-    color: #333;
+    color: #dbbba3;
     text-align: center;
     border-bottom: 1px solid #e1e1e1;
 }
 
+.table tbody tr:nth-child(odd) {
+    background-color: #99582A;
+}
+
 .table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #432818;
 }
 
 .table tbody tr:hover {
-    background-color: #f1f1f1;
+    background-color: #3d3722;
 }
 
 #no-orders-message{
     text-align:center; 
     font-weight:bold;
-    color: rgb(199, 18, 18);
+    color: #96907c;
     margin-top: 55px;
     margin-bottom: 0px;
 }
-

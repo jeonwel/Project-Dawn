@@ -9,6 +9,7 @@
 
 .background-image{
     background-image: url(../images/bg-index.jpg);
+    filter: brightness(150%);
     background-size: cover; 
     background-repeat: no-repeat;
     height: 100vh;

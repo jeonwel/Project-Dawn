@@ -9,16 +9,17 @@ const addButton = document.querySelector('.add-btn');
 let total = 0;
 let orders = {}; // Store orders with quantities
 
-addButton.addEventListener('click', () => {
-    sidebar.classList.add('show'); // Show the sidebar
-});
-
-// Show the sidebar when the eat icon is clicked
+// Show sidebar when the eat icon is clicked
 eatIcon.addEventListener('click', () => {
     sidebar.classList.add('show'); // Show the sidebar
 });
 
-// Hide the sidebar when the close button is clicked
+// Show sidebar when addButton is clicked
+addButton.addEventListener('click', () => {
+    sidebar.classList.add('show'); // Show the sidebar
+});
+
+// Hide sidebar when the close button is clicked
 sidebarClose.addEventListener('click', () => {
     sidebar.classList.remove('show'); // Hide the sidebar
 });
@@ -28,6 +29,8 @@ document.querySelectorAll('.add-btn').forEach(icon => {
     icon.addEventListener('click', () => {
         const itemName = icon.getAttribute('data-name');
         const itemPrice = parseFloat(icon.getAttribute('data-price'));
+
+        if (isNaN(itemPrice)) return; // Prevent adding if price is not valid
 
         // Check if the item already exists in the order
         if (orders[itemName]) {
@@ -45,12 +48,17 @@ document.querySelectorAll('.add-btn').forEach(icon => {
 // Update the order list in the DOM
 function updateOrderList() {
     orderList.innerHTML = ''; // Clear the current order list
+    let hasOrders = false;
+
     for (const itemName in orders) {
         const orderItem = document.createElement('div');
         orderItem.classList.add('order-item');
 
         const itemText = document.createElement('span');
-        itemText.textContent = `${itemName} - Php ${orders[itemName].price.toFixed(2)}`; // Removed "x" from here
+        itemText.classList.add('item-name');
+        itemText.innerHTML = `${itemName}<br> - ₱ ${orders[itemName].price.toFixed(2)}`;
+        itemText.style.fontSize = '16px'; 
+        itemText.style.fontWeight = 'bold';
 
         const quantityControl = document.createElement('div');
         quantityControl.classList.add('quantity-control');
@@ -83,6 +91,7 @@ function updateOrderList() {
         orderItem.appendChild(deleteBtn);
 
         orderList.appendChild(orderItem);
+        hasOrders = true;
     }
 
     // Update total amount
@@ -90,10 +99,10 @@ function updateOrderList() {
     totalAmount.textContent = `Php ${total.toFixed(2)}`;
 
     // Show the sidebar if there are orders
-    if (total > 0) {
-        sidebar.classList.add('show'); // Show the sidebar if there are items in the order
+    if (hasOrders) {
+        sidebar.classList.add('show');
     } else {
-        sidebar.classList.remove('show'); // Hide the sidebar if there are no items in the order
+        sidebar.classList.remove('show');
     }
 }
 
@@ -120,23 +129,20 @@ function removeOrderItem(itemName) {
 checkoutButton.addEventListener('click', () => {
     if (total > 0) {
         // Get the selected dine option and payment option
-        const dineOption = document.querySelector('input[name="dine-option"]:checked').value; 
-        const paymentOption = document.querySelector('input[name="pay-option"]:checked').value; 
+        const dineOption = document.querySelector('select[name="dine-option"]').value;
+        const paymentOption = document.querySelector('select[name="pay-option"]').value;
 
         // Retrieve the last orderId from localStorage, or start from 0 if not available
         let lastOrderId = parseInt(localStorage.getItem('lastOrderId')) || 0;
-        
+
         // Increment the orderId
         lastOrderId++;
-
-        // Use the lastOrderId directly (without leading zeros)
-        const orderId = lastOrderId;
 
         // Store the updated orderId back into localStorage for the next order
         localStorage.setItem('lastOrderId', lastOrderId.toString());
 
         const orderSummary = {
-            orderId: orderId,  // Order ID
+            orderId: lastOrderId,  // Order ID
             dineOption: dineOption,
             paymentOption: paymentOption,
             total: total,
@@ -149,7 +155,7 @@ checkoutButton.addEventListener('click', () => {
         // Store order summary into salesData for the Sales Management page
         let salesData = JSON.parse(localStorage.getItem('salesData')) || [];
         const salesOrder = {
-            orderId: orderId,
+            orderId: lastOrderId,
             summary: Object.keys(orders).join(", "),  // Summary of ordered items
             diningPreference: dineOption,
             paymentMethod: paymentOption,
@@ -165,45 +171,70 @@ checkoutButton.addEventListener('click', () => {
     }
 });
 
-
 // Search Functionality
+document.getElementById('searchInput').addEventListener('input', function() {
+    const searchTerm = this.value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+    const sections = document.querySelectorAll('.section-header');
 
-document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('searchInput');
-    const menuItems = document.querySelectorAll('.menu-item, .card');
+    let categoryFound = false;
+    let itemFound = false;
 
-    // Function to handle search
-    const handleSearch = () => {
-        const query = searchInput.value.toLowerCase();
+    // Show all sections and cards by default when the search term is empty
+    if (searchTerm.trim() === "") {
+        sections.forEach(section => {
+            section.classList.remove('hidden');  // Show all sections
+        });
+        cards.forEach(card => {
+            card.style.display = '';  // Show all cards
+        });
+        return;  // Exit early as we don't need to search
+    }
 
-        menuItems.forEach(item => {
-            const titleElement = item.querySelector('h5, h4');
-            const title = titleElement.textContent;
+    // Hide all sections initially
+    sections.forEach(section => {
+        section.classList.add('hidden');
+    });
 
-            // Clear previous highlights
-            titleElement.innerHTML = title;
+    // Check if the search term matches any category (section title)
+    sections.forEach(section => {
+        const categoryTitle = section.querySelector('.section-heading').textContent.toLowerCase();
+        if (categoryTitle.includes(searchTerm)) {
+            section.classList.remove('hidden');  // Show the matching category
+            categoryFound = true;
+        }
+    });
 
-            // Check if the title includes the query
-            if (title.toLowerCase().includes(query)) {
-                item.style.display = ''; // Show item if it matches
+    // If no category found, check for items
+    if (!categoryFound) {
+        cards.forEach(card => {
+            const title = card.querySelector('.card-title').textContent.toLowerCase();
+            const description = card.querySelector('p').textContent.toLowerCase();
 
-                // Highlight the matched text
-                const regex = new RegExp(`(${query})`, 'gi');
-                titleElement.innerHTML = title.replace(regex, '<span class="highlight">$1</span>');
+            // Check if the title or description includes the search term
+            if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                card.style.display = '';  // Show the card
+                itemFound = true;
+
+                // Get the parent section of the card and show it if not already shown
+                const section = card.closest('.section-header');
+                if (section && section.classList.contains('hidden')) {
+                    section.classList.remove('hidden');  // Show the section if it contains matching cards
+                }
             } else {
-                item.style.display = 'none'; // Hide item if it doesn't match
+                card.style.display = 'none';  // Hide the card
             }
         });
-    };
 
-    // Attach input event listener
-    searchInput.addEventListener('input', handleSearch);
+        // If no items match, show message (optional)
+        if (!itemFound) {
+            console.log("No items found.");  // Replace with a UI message if needed
+        }
+    }
 });
-
 // Show menu items when clicked
-
 document.addEventListener('DOMContentLoaded', function () {
-    const menuLinks = document.querySelectorAll('.menu-item a'); 
+    const menuLinks = document.querySelectorAll('.menu-item a');
 
     menuLinks.forEach(link => {
         link.addEventListener('click', function (event) {
@@ -211,7 +242,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const targetId = this.getAttribute('href'); // Get the target ID
             const targetElement = document.querySelector(targetId); // Find the element
 
-            // Hide all other sections 
+            // Hide all other sections
             const allSections = document.querySelectorAll('.section-header');
             allSections.forEach(section => {
                 section.classList.add('hidden');
@@ -221,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function () {
             targetElement.classList.remove('hidden');
 
             // Smooth scrolling
-            targetElement.scrollIntoView({ behavior: 'smooth' }); 
+            targetElement.scrollIntoView({ behavior: 'smooth' });
         });
     });
 });

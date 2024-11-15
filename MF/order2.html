@@ -15,12 +15,10 @@
 
     <header class="header">
         <nav class="header-menu">
-            <div class="burger-icon">
-                <i class="fa-solid fa-bars"></i>
-            </div>
+            
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="searchInput" placeholder="Search...">
+                <input type="text" id="searchInput" placeholder="Search">
             </div>
             <div class="eat-icon">
                 <i class="fa-solid fa-utensils"></i>
@@ -34,34 +32,29 @@
                     <div class="list-items"></div>
                     <div class="sidebar-footer">
                         <div class="total-amount">
-                            <span>----------------------------</span><br>
-                            <h4>Select Dining Option:</h4>
-                            <label>
-                                <input type="radio" name="dine-option" value="Dine In" checked>
-                                Dine In
-                            </label>
-                            <label>
-                                <input type="radio" name="dine-option" value="Dine Out">
-                                Dine Out
-                            </label>
-                            <h4>Select Payment Option:</h4>
-                            <label>
-                                <input type="radio" name="pay-option" value="Cash" checked>
-                                Cash
-                            </label>
-                            <label>
-                                <input type="radio" name="pay-option" value="Credit Card">
-                                Credit Card
-                            </label>
-                            <h5>Total</h5>
-                            <div class="order-total">Php 0.00</div>
+                           
+                        <h4>Select Dining Option:</h4>
+                        <select name="dine-option">
+                            <option value="Dine In" selected>Dine In</option>
+                            <option value="Take Out">Take Out</option>
+                        </select>
+
+                        <h4>Select Payment Option:</h4>
+                        <select name="pay-option">
+                            <option value="Cash" selected>Cash</option>
+                            <option value="GCASH">GCASH</option>
+                        </select>
                         </div>
-                        <button class="checkout-btn">Checkout</button>
                     </div>
+                    <div class="total-container">
+                        <h5>Total</h5>
+                        <div class="order-total">Php 0.00</div>
+                    </div>
+                    <button class="checkout-btn">Checkout</button>
                 </div>
             </div>
         </nav>
-    </header>
+    </header>      
 
     <section class="cover">
         <div class="cover-overlay">
